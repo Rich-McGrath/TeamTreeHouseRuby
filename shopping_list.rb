@@ -9,6 +9,7 @@ end
 def add_list_item
   print "What is the item called? "
   item_name = gets.chomp
+#  print_separator()
 
   print "How much? "
   quantity = gets.chomp.to_i
@@ -17,21 +18,30 @@ def add_list_item
   return hash
 end
 
+def print_separator(character="-")
+  puts character * 80
+end
+
+
 def print_list(list)
   puts "List: #{list['name']}"
-  puts "----"
+  print_separator()
 
   list["items"].each do |item|
-    puts "Item: " + item['name']
-    puts "Quantity: " + item['quantity'].to_s
-    puts "---"
+    puts "\tItem: " + item['name'] + "\t\t\t" +
+         "Quantity: " + item['quantity'].to_s
   end
+
+print_separator()
 end
 
 list = create_list()
-puts list.inspect
+
+puts "Great! Add some items to your list."
+
+list['items'].push(add_list_item())
+list['items'].push(add_list_item())
 list['items'].push(add_list_item())
 
-puts list.inspect
-
+puts "Here's your list:\n"
 print_list(list)
