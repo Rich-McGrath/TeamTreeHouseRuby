@@ -39,9 +39,15 @@ list = create_list()
 
 puts "Great! Add some items to your list."
 
-list['items'].push(add_list_item())
-list['items'].push(add_list_item())
-list['items'].push(add_list_item())
+loop do
+  list['items'].push(add_list_item())
+
+  print "Would you like to add another item to your #{list['name']} list (y/n)?"
+  answer = gets.chomp.downcase
+  if answer == 'n'
+    break
+  end
+end
 
 puts "Here's your list:\n"
 print_list(list)
