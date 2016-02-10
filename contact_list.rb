@@ -16,9 +16,8 @@ def add_contact()
       contact["phone_numbers"].push(phone)
     end
   end
-  return contact
+return contact
 end
-
 
 contact_list = []
 answer = ""
