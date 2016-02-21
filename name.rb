@@ -1,6 +1,6 @@
 class Name
-attr_reader :first_name, :middle_name, :last_name
-attr_accessor :title
+attr_accessor :title, :first_name, :middle_name, :last_name
+
 
 
   def initialize(title, first_name, middle_name, last_name)
