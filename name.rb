@@ -11,7 +11,9 @@ attr_accessor :title, :first_name, :middle_name, :last_name
   end
 
   def full_name
-    @first_name + " " + @middle_name + " " + @last_name
+    @first_and_middle_name = @first_name + " " + @middle_name
+
+    @first_and_middle_name + " " + @last_name
   end
 
   def full_name_with_title
