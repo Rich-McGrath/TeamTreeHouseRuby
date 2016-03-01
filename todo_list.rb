@@ -7,12 +7,14 @@ class TodoList
     @name = name
     @todo_items = []
   end
+
+  def add_item(name)
+    todo_items.push(TodoItem.new(name))
+  end
 end
 
-todo_item = TodoItem.new("Milk")
+todo_list = TodoList.new("Groceries")
+todo_list.add_item("Milk")
+todo_list.add_item("Eggs")
 
-puts todo_item
-todo_item.mark_complete!
-puts todo_item
-todo_item.mark_incomplete!
-puts todo_item
+puts todo_list.inspect
