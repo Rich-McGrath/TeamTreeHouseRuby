@@ -7,7 +7,7 @@ class TodoItem
   end
 
   def to_s
-    if complte?
+    if complete?
       "[C] #{name}"
     else
       "[I] #{name}"
