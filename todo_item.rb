@@ -3,6 +3,26 @@ class TodoItem
 
   def initialize(name)
     @name = name
-    @complete = fales
+    @complete = false
+  end
+
+  def to_s
+    if complte?
+      "[C] #{name}"
+    else
+      "[I] #{name}"
+    end
+  end
+
+  def complete?
+    @complete
+  end
+
+  def mark_complete!
+    @complete = true
+  end
+
+  def mark_incomplete!
+    @complete = false
   end
 end
