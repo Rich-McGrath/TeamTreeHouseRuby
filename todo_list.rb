@@ -49,13 +49,31 @@ class TodoList
       return nil
     end
   end
+
+  def print_list(kind='all')
+    puts "#{name} List - #{kind} items"
+    puts "-" * 30
+    todo_items.each do |todo_item|
+      case kind
+      when 'all'
+        puts todo_item
+      when 'complete'
+        puts todo_item if todo_item.complete?
+      when 'incomplete'
+        puts todo_item unless todo_item.complete?
+      end
+    end
+    puts "\n"
+  end
 end
 
 todo_list = TodoList.new("Groceries")
 todo_list.add_item("Milk")
 todo_list.add_item("Eggs")
+todo_list.add_item("Bread")
+todo_list.add_item("Butter")
 
-puts todo_list.inspect
+#puts todo_list.inspect
 
 if todo_list.remove_item("Eggs")
   puts "Eggs were removed from the list."
@@ -64,4 +82,9 @@ end
 if todo_list.mark_complete("Milk")
   puts "Milk was marke as complete."
 end
+puts "\n"
+
 puts todo_list.inspect
+puts todo_list.print_list
+puts todo_list.print_list('complete')
+puts todo_list.print_list('incomplete')
