@@ -4,6 +4,6 @@ def get_name
     yield name
   end
 
-  get_name do |name|
-    puts "That's a cool name, #{name}!"
+  get_name do |your_name|
+    puts "That's a cool name, #{your_name}!"
   end
