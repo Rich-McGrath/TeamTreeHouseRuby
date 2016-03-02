@@ -1,7 +1,7 @@
 def block_method
   puts "This is the first line in block_method"
   yield
-  puts "This statment is after the yield keyword"
+  puts "This statement is after the yield keyword"
 end
 
 block_method do
