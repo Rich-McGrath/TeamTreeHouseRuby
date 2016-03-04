@@ -42,13 +42,17 @@ class Monster
   def hide(&block)
     actions[:hides] =+1
     print "#{name} hides!"
-    yield
+    yield self if block_given? #give access to the class inside the block
   end
 
   def run(&block)
     actions[:runs] =+1
     print "#{name} runs"
     yield
+  end
+
+  def inspect
+    "<#{name}, #{actions}>"
   end
 end
 
@@ -57,7 +61,11 @@ monster.say { puts "Welcome to my home."}
 monster.scream { puts " BOO!" }
 monster.scare { puts " Go away!" }
 monster.run { puts "Going to get you!"}
-monster.hide { puts "Running away and hiding?"}
+
+monster.hide do |m| #|m| passing the class in via yield call on line 45
+  puts "Running away and hiding?"
+  puts m.inspect
+end
 
 puts "\n"
 monster.print_scoreboard
