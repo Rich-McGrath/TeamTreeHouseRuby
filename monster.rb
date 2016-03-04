@@ -16,6 +16,17 @@ class Monster
     yield
   end
 
+  def print_scoreboard
+    puts "------------------------------"
+    puts "#{name} scorebaord"
+    puts "------------------------------"
+    puts "- Screams: #{actions[:screams]}"
+    puts "- Scares: #{actions[:scares]}"
+    puts "- Runs: #{actions[:runs]}"
+    puts "- Hides: #{actions[:hides]}"
+    puts "------------------------------"
+  end
+
   def scream(&block)
     actions[:screams] += 1
     print "#{name} screams!"
@@ -48,4 +59,5 @@ monster.scare { puts " Go away!" }
 monster.run { puts "Going to get you!"}
 monster.hide { puts "Running away and hiding?"}
 
-puts monster.actions
+puts "\n"
+monster.print_scoreboard
